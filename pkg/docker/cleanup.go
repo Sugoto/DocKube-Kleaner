@@ -11,7 +11,6 @@ import (
 	"github.com/docker/docker/client"
 )
 
-// NewDockerClient initializes and returns a Docker client.
 func NewDockerClient() (*client.Client, error) {
 	cli, err := client.NewClientWithOpts(client.FromEnv, client.WithAPIVersionNegotiation())
 	if err != nil {
