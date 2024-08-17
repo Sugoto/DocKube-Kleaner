@@ -4,9 +4,9 @@ import (
 	"log"
 	"time"
 
-	"github.com/sugoto/docker-k8s-garbage-collector/internal/scheduler"
-	"github.com/sugoto/docker-k8s-garbage-collector/pkg/docker"
-	"github.com/sugoto/docker-k8s-garbage-collector/pkg/k8s"
+	"github.com/sugoto/dockube-kleaner/internal/scheduler"
+	"github.com/sugoto/dockube-kleaner/pkg/docker"
+	"github.com/sugoto/dockube-kleaner/pkg/k8s"
 )
 
 func main() {
