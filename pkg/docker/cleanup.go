@@ -5,7 +5,9 @@ import (
 	"log"
 
 	"github.com/docker/docker/api/types"
+	"github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/api/types/filters"
+	"github.com/docker/docker/api/types/volume"
 	"github.com/docker/docker/client"
 )
 
@@ -55,16 +57,16 @@ func CleanupDockerResources(cli *client.Client) {
 	}
 
 	// Remove unused volumes
-	volumes, err := cli.VolumeList(ctx, filters.Args{})
+	volumes, err := cli.VolumeList(ctx, volume.ListOptions{})
 	if err != nil {
 		log.Fatal(err)
 	}
-	for _, volume := range volumes.Volumes {
-		err := cli.VolumeRemove(ctx, volume.Name, true)
+	for _, vol := range volumes.Volumes {
+		err := cli.VolumeRemove(ctx, vol.Name, true)
 		if err != nil {
 			log.Println("Error removing volume:", err)
 		} else {
-			log.Println("Removed volume:", volume.Name)
+			log.Println("Removed volume:", vol.Name)
 		}
 	}
 }
