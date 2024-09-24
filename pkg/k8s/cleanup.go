@@ -9,7 +9,6 @@ import (
 	"k8s.io/client-go/tools/clientcmd"
 )
 
-// NewK8sClient initializes and returns a Kubernetes clientset.
 func NewK8sClient() *kubernetes.Clientset {
 	config, err := clientcmd.BuildConfigFromFlags("", clientcmd.RecommendedHomeFile)
 	if err != nil {
