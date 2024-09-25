@@ -19,6 +19,7 @@ func NewDockerClient() (*client.Client, error) {
 	return cli, nil
 }
 
+// CleanupDockerResources cleans up unused Docker containers, images, and volumes.
 func CleanupDockerResources(cli *client.Client) {
 	ctx := context.Background()
 
